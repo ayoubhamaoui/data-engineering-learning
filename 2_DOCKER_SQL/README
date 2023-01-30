@@ -1,0 +1,38 @@
+``` docker build -t test:pandas . ```
+
+``` docker run -it test:pandas ```
+
+
+## DELETE ALL IMAGES AND CONTAINERS
+``` docker system prune -a ```
+
+
+#Running Postgres with Docker
+
+### Windows
+```
+docker run -it 
+  -e POSTGRES_USER="root" 
+  -e POSTGRES_PASSWORD="root" 
+  -e POSTGRES_DB="ny_taxi" 
+  -v "C:/Users/Ividata12/Documents/DE PROJECTS/data-engineering-gcp/2_DOCKER_SQL/ny_taxi_postgres_data":/var/lib/postgresql/data 
+  -p 5432:5432 
+  postgres:13
+
+```
+docker run -p 5050:80 ^     
+  -e PGADMIN_DEFAULT_EMAIL=admin@admin.com ^     
+  -e PGADMIN_DEFAULT_PASSWORD=root ^     
+  -d dpage/pgadmin
+
+
+
+  docker run -it ^
+    taxi_ingest:v001 ^
+    --user=root ^
+    --password=root ^
+    --host=10.188.52.225 ^
+    --port=5432^
+    --database=ny_taxi ^
+    --table=yellow_taxi_trips ^
+    --parquet_url=https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet 
